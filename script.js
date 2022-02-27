@@ -27,6 +27,10 @@ const setup = async () => {
       } = await worker.recognize(canvas);
 
       textElem.textContent = text;
+
+      speechSynthesis.speak(
+        new SpeechSynthesisUtterance(text.replace(/\s/g, " "))
+      );
     });
   });
 };
